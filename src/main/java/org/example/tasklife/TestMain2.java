@@ -9,6 +9,16 @@ public class TestMain2 {
             public void onFinish(Thread thread, Object result) {
                 System.out.println("The result is "+result);
             }
+
+            @Override
+            public void onStart(Thread thread) {
+                System.out.println("The task is started");
+            }
+
+            @Override
+            public void onRunning(Thread thread) {
+                System.out.println("The task is running");
+            }
         };
 
         Observable observable=new ObservableThread<String>(lifecycle,()->{
